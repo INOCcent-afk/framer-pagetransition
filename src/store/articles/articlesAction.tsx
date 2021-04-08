@@ -1,7 +1,7 @@
 import { Dispatch } from "react";
-import { Action } from "./articlesTypes";
+import { ArticleAction } from "./articlesTypes";
 
-export const loadArticles = () => async (dispatch: Dispatch<Action>) => {
+export const loadArticles = () => async (dispatch: Dispatch<ArticleAction>) => {
   dispatch({
     type: "GET_ARTICLES",
   });
