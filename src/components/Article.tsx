@@ -37,6 +37,7 @@ const ArticleContainer = styled.div`
   flex-direction: column;
   font-weight: bold;
   margin-bottom: 50px;
+
   h1 {
     font-size: 24px;
     font-family: sans-serif;
@@ -44,6 +45,7 @@ const ArticleContainer = styled.div`
   }
   img {
     width: 100%;
+    margin: 10px 0;
   }
   span {
     margin: 5px 0;

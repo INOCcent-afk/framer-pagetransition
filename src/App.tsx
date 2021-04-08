@@ -89,6 +89,7 @@ const CircleSvg = styled.image`
   position: fixed;
   left: -75px;
   top: 30%;
+
   img {
     width: 150px;
     animation: rotate 10s infinite;
@@ -100,6 +101,22 @@ const CircleSvg = styled.image`
     }
     100% {
       transform: rotate(360deg);
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    & {
+      left: -150px;
+    }
+    img {
+      width: 300px;
+    }
+  }
+  @media only screen and (min-width: 1200px) {
+    & {
+      left: -250px;
+    }
+    img {
+      width: 500px;
     }
   }
 `;

@@ -1,13 +1,22 @@
 import React from "react";
 import styled from "styled-components";
+import Marquee from "react-fast-marquee";
 
 export const Footer: React.FC = () => {
   return (
     <FooterContainer>
-      <div className="footerAnimate">
-        <h1>DESIGN WORKD FOR OURS.</h1>
+      <Marquee direction="left" speed={200} className="footerAnimate">
+        <h1>DESIGN WORK FOR OURS.</h1>
         <h1>SEIZE THE DAY.</h1>
-      </div>
+        <h1>DESIGN WORK FOR OURS.</h1>
+        <h1>SEIZE THE DAY.</h1>
+        <h1>DESIGN WORK FOR OURS.</h1>
+        <h1>SEIZE THE DAY.</h1>
+        <h1>DESIGN WORK FOR OURS.</h1>
+        <h1>SEIZE THE DAY.</h1>
+        <h1>DESIGN WORK FOR OURS.</h1>
+        <h1>SEIZE THE DAY.</h1>
+      </Marquee>
     </FooterContainer>
   );
 };
@@ -25,21 +34,20 @@ const FooterContainer = styled.footer`
     width: 200%;
     display: flex;
     position: absolute;
-    transform: translateX(100%);
-    animation: marquee 40s linear infinite;
+    align-items: center;
+
+    .overlay::before,
+    .overlay::after {
+      display: none !important;
+    }
 
     h1 {
       white-space: nowrap;
       margin-left: 50px;
-    }
-  }
-
-  @keyframes marquee {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(-100%);
+      font-style: italic;
+      font-size: 40px;
+      -webkit-text-stroke: 1px #bd8e8a;
+      -webkit-text-fill-color: transparent;
     }
   }
 `;
