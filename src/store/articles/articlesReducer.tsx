@@ -1,3 +1,5 @@
+import { Action, ArticleState } from "./articlesTypes";
+
 const initialState = {
   articles: [
     {
@@ -37,4 +39,20 @@ const initialState = {
       id: 12345,
     },
   ],
+};
+
+export const loadMovies = (
+  state: ArticleState = initialState,
+  action: Action
+) => {
+  switch (action.type) {
+    case "GET_ARTICLES": {
+      return {
+        ...state,
+      };
+    }
+    default: {
+      return state;
+    }
+  }
 };
