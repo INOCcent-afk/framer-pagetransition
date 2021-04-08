@@ -19,8 +19,9 @@ export const Content: React.FC = () => {
 
   return (
     <ContentContainer>
-      {articles.map((article) => (
+      {articles.map((article, index) => (
         <Article
+          order={index + 1}
           title={article.title}
           date={article.date}
           image={article.image}
@@ -35,9 +36,5 @@ export const Content: React.FC = () => {
 
 const ContentContainer = styled.div`
   max-width: 800px;
-  img {
-    width: 350px;
-    height: 500px;
-    object-fit: cover;
-  }
+  margin: 50px 10px auto 10px;
 `;
