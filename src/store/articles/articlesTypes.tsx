@@ -6,8 +6,9 @@ export interface ArticleInfoState {
   title: string;
   date: string;
   image: string;
-  desc: string[];
+  desc: string;
   id: number;
+  details: string[];
 }
 
 export type ArticleAction = {

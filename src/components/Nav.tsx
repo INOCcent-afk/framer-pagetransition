@@ -1,9 +1,7 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-interface NavProps {}
-
-export const Nav: React.FC<NavProps> = ({}) => {
+export const Nav: React.FC = () => {
   return (
     <ul>
       <li>
@@ -12,12 +10,12 @@ export const Nav: React.FC<NavProps> = ({}) => {
         </NavLink>
       </li>
       <li>
-        <NavLink exact activeClassName="active" to="about">
+        <NavLink exact activeClassName="active" to="/about">
           About
         </NavLink>
       </li>
       <li>
-        <NavLink exact activeClassName="active" to="services">
+        <NavLink exact activeClassName="active" to="/services">
           Services
         </NavLink>
       </li>

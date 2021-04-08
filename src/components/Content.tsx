@@ -6,15 +6,6 @@ import { ArticleState } from "../store/articles/articlesTypes";
 import { Article } from "./Article";
 import styled from "styled-components";
 
-const ContentContainer = styled.div`
-  max-width: 800px;
-  img {
-    width: 350px;
-    height: 500px;
-    object-fit: cover;
-  }
-`;
-
 export const Content: React.FC = () => {
   const dispatch = useDispatch();
 
@@ -35,8 +26,18 @@ export const Content: React.FC = () => {
           image={article.image}
           desc={article.desc}
           key={article.id}
+          path={article.id}
         />
       ))}
     </ContentContainer>
   );
 };
+
+const ContentContainer = styled.div`
+  max-width: 800px;
+  img {
+    width: 350px;
+    height: 500px;
+    object-fit: cover;
+  }
+`;
