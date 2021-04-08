@@ -41,7 +41,7 @@ const initialState = {
   ],
 };
 
-export const loadMovies = (
+export const articleReducer = (
   state: ArticleState = initialState,
   action: Action
 ) => {
