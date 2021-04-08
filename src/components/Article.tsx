@@ -48,10 +48,21 @@ const ArticleContainer = styled.div`
     margin: 10px 0;
   }
   span {
-    margin: 5px 0;
+    margin: 20px 0;
   }
   .desc {
     font-weight: normal;
     font-family: "Roboto", sans-serif;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    h1 {
+      font-size: 40px;
+    }
+
+    .desc {
+      font-size: 20px;
+      line-height: 30px;
+    }
   }
 `;
