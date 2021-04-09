@@ -19,7 +19,7 @@ const initialState = {
       title: "LOREM IPSUM AT NIGHT",
       date: "2021 / 1143 @",
       image:
-        "https://raw.githubusercontent.com/wrongakram/framermotion-react-router/master/src/images/yasmeen.webp",
+        "https://images.pexels.com/photos/6652959/pexels-photo-6652959.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=3456&w=5184",
       desc:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
       id: 1234,
@@ -32,7 +32,7 @@ const initialState = {
       title: "LOREM IPSUM AT NIGHT",
       date: "2021 / 1143 @",
       image:
-        "https://raw.githubusercontent.com/wrongakram/framermotion-react-router/master/src/images/yasmeen.webp",
+        "https://images.pexels.com/photos/3671083/pexels-photo-3671083.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=3456&w=5184",
       desc:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
       id: 12345,

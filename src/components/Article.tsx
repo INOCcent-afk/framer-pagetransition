@@ -37,6 +37,7 @@ const ArticleContainer = styled.div`
   flex-direction: column;
   font-weight: bold;
   margin-bottom: 50px;
+  color: #f2f2fa;
 
   h1 {
     font-size: 24px;

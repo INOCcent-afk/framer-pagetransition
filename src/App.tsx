@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Switch } from "react-router";
 import styled, { createGlobalStyle } from "styled-components";
 import { Nav } from "./components/Nav";
@@ -9,11 +9,17 @@ import { Home } from "./pages/Home";
 import Services from "./pages/Services";
 
 import CircleSvgImg from "./assets/images/circle-svg.svg";
+import ScrollToTop from "./components/ScrollToTop";
+import Menu from "./components/Menu";
+
+const [isNavOpen, setIsNavOpen] = useState(false);
 
 function App() {
   return (
     <>
       <GlobalStyle />
+      <ScrollToTop />
+      <Menu />
       <CircleSvg>
         <img src={CircleSvgImg} alt="SVG" />
       </CircleSvg>
@@ -43,12 +49,12 @@ const GlobalStyle = createGlobalStyle`
 
 
  body {
-   background: #FFF0E1;
+   background: #171719;
    font-family:  sans-serif;
  } 
 
  a {
-    color: #000;
+    color: #f2f2fa;
     font-weight: bold;
     text-decoration: none;
   }
@@ -65,27 +71,35 @@ const GlobalStyle = createGlobalStyle`
 
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 0px;
 }
 
 
-::-webkit-scrollbar-track {
-  background: transparent;
+
+
+
+
+
+
+
+.pageContainer { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
 }
 
 
-::-webkit-scrollbar-thumb {
-  background: #bd8e8a;
-}
-
-
-::-webkit-scrollbar-thumb:hover {
-  background: #bd8e8a;
+@media only screen and (min-width:768px) { 
+  .pageContainer { 
+    font-size: 40px
+  }
 }
 
 `;
 
-const CircleSvg = styled.image`
+const CircleSvg = styled.div`
   position: fixed;
   left: -75px;
   top: 30%;
@@ -113,10 +127,10 @@ const CircleSvg = styled.image`
   }
   @media only screen and (min-width: 1200px) {
     & {
-      left: -250px;
+      left: -200px;
     }
     img {
-      width: 500px;
+      width: 400px;
     }
   }
 `;

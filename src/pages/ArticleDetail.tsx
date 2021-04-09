@@ -21,21 +21,65 @@ export const ArticleDetail: React.FC<ArticleDetailProps> = ({ match }) => {
         .filter((article) => article.id === articleID)
         .map((filteredArticle) => (
           <Container key={filteredArticle.id}>
-            <h1>{filteredArticle.title}</h1>
-            <span>{filteredArticle.date}</span>
+            <div className="title">
+              <span>{filteredArticle.date}</span>
+              <h1>{filteredArticle.title}</h1>
+            </div>
             <img src={filteredArticle.image} alt={filteredArticle.title} />
-            <p>{filteredArticle.desc}</p>
-            <p>{filteredArticle.details[0]}</p>
-            <p>{filteredArticle.details[1]}</p>
+            <div className="descriptions">
+              <p>{filteredArticle.desc}</p>
+              <p>{filteredArticle.details[0]}</p>
+              <p>{filteredArticle.details[1]}</p>
+            </div>
           </Container>
         ))}
-      <h1>EELLO</h1>
     </>
   );
 };
 
 const Container = styled.div`
-  p {
-    margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  margin: 30px 0;
+  img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+  }
+  .title {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 20px auto;
+  }
+  span {
+    font-weight: bold;
+  }
+
+  p,
+  h1,
+  span {
+    margin: 10px;
+  }
+  .descriptions {
+    max-width: 600px;
+    margin: 30px auto;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .title {
+      margin: 100px auto;
+    }
+
+    h1 {
+      font-size: 64px;
+    }
+    .descriptions {
+      margin: 100px auto;
+    }
+    p {
+      font-size: 20px;
+      line-height: 40px;
+    }
   }
 `;

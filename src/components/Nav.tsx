@@ -14,24 +14,6 @@ export const Nav: React.FC = () => {
         <span></span>
         <span></span>
       </Burger>
-
-      <ul>
-        <li>
-          <NavLink exact activeClassName="active" to="/">
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink exact activeClassName="active" to="/about">
-            About
-          </NavLink>
-        </li>
-        <li>
-          <NavLink exact activeClassName="active" to="/services">
-            Services
-          </NavLink>
-        </li>
-      </ul>
     </Header>
   );
 };
@@ -41,26 +23,16 @@ const Header = styled.header`
   justify-content: space-between;
   padding: 40px 30px;
   align-items: center;
+  z-index: 20;
+  position: relative;
 
   .logo {
     font-weight: bold;
   }
 
-  ul {
-    align-items: center;
-    display: none;
-    list-style: none;
-    li {
-      margin-left: 15px;
-    }
-  }
-
   @media only screen and (min-width: 768px) {
     & {
       padding: 50px 5%;
-    }
-    ul {
-      display: flex;
     }
   }
 `;
@@ -71,16 +43,11 @@ const Burger = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  cursor: pointer;
 
   span {
     width: 100%;
     height: 2px;
-    background: #000;
-  }
-
-  @media only screen and (min-width: 768px) {
-    & {
-      display: none;
-    }
+    background: #f2f2fa;
   }
 `;
