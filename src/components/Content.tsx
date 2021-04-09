@@ -36,11 +36,11 @@ export const Content: React.FC = () => {
 
 const ContentContainer = styled.div`
   max-width: 400px;
-  margin: 50px 10px;
+  margin: 150px 10px;
 
   @media only screen and (min-width: 500px) {
     & {
-      margin: 50px auto;
+      margin: 200px auto;
     }
   }
 

@@ -12,18 +12,34 @@ import CircleSvgImg from "./assets/images/circle-svg.svg";
 import ScrollToTop from "./components/ScrollToTop";
 import Menu from "./components/Menu";
 
-const [isNavOpen, setIsNavOpen] = useState(false);
-
 function App() {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+  console.log(isNavOpen);
   return (
     <>
       <GlobalStyle />
       <ScrollToTop />
-      <Menu />
+      {isNavOpen ? (
+        <Menu
+          animation="animateIN"
+          animationSecond="secondAnimateIN"
+          secondShow="show"
+        />
+      ) : (
+        <Menu
+          animation="animateOUT"
+          animationSecond="secondAnimateOUT"
+          secondShow="hideChildren"
+        />
+      )}
       <CircleSvg>
         <img src={CircleSvgImg} alt="SVG" />
       </CircleSvg>
-      <Nav />
+      <Nav toggleMenu={toggleNav} />
       <div className="body-content-inner">
         <Switch>
           <Route path="/" exact component={Home} />

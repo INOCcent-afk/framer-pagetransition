@@ -1,16 +1,108 @@
 import React from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-const Menu = () => {
+interface MenuProps {
+  animation: string;
+  animationSecond: string;
+  secondShow: string;
+}
+
+const variants = {
+  hidden: {
+    y: "100vh",
+  },
+  animateIN: {
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+  secondAnimateIN: {
+    y: 0,
+    transition: {
+      duration: 0.5,
+      delay: 0.5,
+      when: "beforeChildren",
+      ease: "easeInOut",
+      staggerChildren: 0.4,
+    },
+  },
+  secondAnimateOUT: {
+    y: "100vh",
+
+    transition: {
+      duration: 0.5,
+      delay: 0.5,
+      when: "afterChildren",
+      staggerChildren: 0.4,
+    },
+  },
+
+  animateOUT: {
+    y: "100vh",
+
+    transition: {
+      duration: 0.5,
+      delay: 1,
+    },
+  },
+};
+
+const children = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+
+    transition: {
+      duration: 2,
+      delay: 1,
+    },
+  },
+  hideChildren: {
+    opacity: 0,
+
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
+const Menu: React.FC<MenuProps> = ({
+  animation,
+  animationSecond,
+  secondShow,
+}) => {
   return (
     <MenuContainer>
-      <div className="backDrop"></div>
-      <div className="menuContainer">
-        <h1>I</h1>
-        <h1>LOVE</h1>
-        <h1>YOU</h1>
-        <h1>MY DARLENG</h1>
-      </div>
+      <motion.div
+        variants={variants}
+        initial="hidden"
+        animate={animation}
+        className="backDrop"
+      ></motion.div>
+      <motion.div
+        initial="hidden"
+        variants={variants}
+        animate={animationSecond}
+        className="menuContainer"
+      >
+        <motion.h1 variants={children} animate={secondShow}>
+          I
+        </motion.h1>
+        <motion.h1 variants={children} animate={secondShow}>
+          LOVE
+        </motion.h1>
+        <motion.h1 variants={children} animate={secondShow}>
+          YOU
+        </motion.h1>
+        <motion.h1 variants={children} animate={secondShow}>
+          MY DARLENG
+        </motion.h1>
+      </motion.div>
     </MenuContainer>
   );
 };
@@ -18,16 +110,13 @@ const Menu = () => {
 export default Menu;
 
 const MenuContainer = styled.div`
-  position: relative;
-  z-index: 10;
-
   .backDrop {
     background: #262629;
     width: 100%;
     height: 100vh;
     z-index: 100;
-    position: absolute;
-    top: -100vh;
+    position: fixed;
+    z-index: 10;
   }
   .menuContainer {
     background: #171719;
@@ -36,8 +125,9 @@ const MenuContainer = styled.div`
     height: 100vh;
     width: 100%;
     justify-content: center;
-    position: absolute;
-    left: 0;
+    position: fixed;
+    z-index: 10;
+    color: #f2f2fa;
 
     h1 {
       font-size: 20px;

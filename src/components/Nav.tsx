@@ -2,14 +2,18 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-export const Nav: React.FC = () => {
+interface NavProps {
+  toggleMenu: any;
+}
+
+export const Nav: React.FC<NavProps> = ({ toggleMenu }) => {
   return (
     <Header>
       <Link to="/">
         <div className="logo">DAVE INOC</div>
       </Link>
 
-      <Burger>
+      <Burger onClick={toggleMenu}>
         <span></span>
         <span></span>
         <span></span>
@@ -24,7 +28,8 @@ const Header = styled.header`
   padding: 40px 30px;
   align-items: center;
   z-index: 20;
-  position: relative;
+  position: fixed;
+  width: 100%;
 
   .logo {
     font-weight: bold;
