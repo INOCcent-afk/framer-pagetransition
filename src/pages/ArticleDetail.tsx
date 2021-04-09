@@ -1,4 +1,5 @@
-import React from "react";
+import { motion } from "framer-motion";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { AppState } from "../store";
@@ -8,6 +9,20 @@ interface ArticleDetailProps {
   match: { params: { id: string } };
 }
 
+const container = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: { ease: "easeInOut", duration: 1 },
+  },
+  exit: {
+    opacity: 0,
+    transition: { ease: "easeInOut", duration: 1 },
+  },
+};
+
 export const ArticleDetail: React.FC<ArticleDetailProps> = ({ match }) => {
   const articleID = parseInt(match.params.id);
 
@@ -15,8 +30,17 @@ export const ArticleDetail: React.FC<ArticleDetailProps> = ({ match }) => {
     (state) => state.articleReducer.articles
   );
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <>
+    <motion.div
+      variants={container}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+    >
       {articles
         .filter((article) => article.id === articleID)
         .map((filteredArticle) => (
@@ -33,14 +57,14 @@ export const ArticleDetail: React.FC<ArticleDetailProps> = ({ match }) => {
             </div>
           </Container>
         ))}
-    </>
+    </motion.div>
   );
 };
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 30px 0;
+  margin: 100px 0;
   color: #fff;
   img {
     width: 100%;

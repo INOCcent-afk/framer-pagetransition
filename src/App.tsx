@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route, Switch } from "react-router";
+import { Route, Switch, useLocation } from "react-router";
 import styled, { createGlobalStyle } from "styled-components";
 import { Nav } from "./components/Nav";
 import { Footer } from "./components/Footer";
@@ -9,22 +9,24 @@ import { Home } from "./pages/Home";
 import Services from "./pages/Services";
 
 import CircleSvgImg from "./assets/images/circle-svg.svg";
-import ScrollToTop from "./components/ScrollToTop";
 import Menu from "./components/Menu";
 import { Loader } from "./components/Loader";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
+  const location = useLocation();
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
   console.log(isNavOpen);
+  console.log(isNavOpen);
   return (
     <>
       <GlobalStyle />
-      <ScrollToTop />
       <Loader />
+
       {isNavOpen ? (
         <Menu
           animation="animateIN"
@@ -43,12 +45,17 @@ function App() {
       </CircleSvg>
       <Nav toggleMenu={toggleNav} />
       <div className="body-content-inner">
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/articleDetail/:id" component={ArticleDetail} />
-          <Route path="/about" exact component={About} />
-          <Route path="/services" exact component={Services} />
-        </Switch>
+        <AnimatePresence
+          exitBeforeEnter
+          onExitComplete={() => setIsNavOpen(false)}
+        >
+          <Switch location={location} key={location.key}>
+            <Route path="/" exact component={Home} />
+            <Route path="/articleDetail/:id" component={ArticleDetail} />
+            <Route path="/about" exact component={About} />
+            <Route path="/services" exact component={Services} />
+          </Switch>
+        </AnimatePresence>
       </div>
       <Footer />
     </>
@@ -93,13 +100,6 @@ const GlobalStyle = createGlobalStyle`
 }
 
 
-
-
-
-
-
-
-
 .pageContainer { 
   display: flex;
   align-items: center;
@@ -121,7 +121,8 @@ const CircleSvg = styled.div`
   position: fixed;
   left: -75px;
   top: 30%;
-
+  opacity: 1;
+  z-index: 10;
   img {
     width: 150px;
     animation: rotate 10s infinite;
