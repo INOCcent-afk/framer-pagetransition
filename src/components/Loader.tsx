@@ -36,7 +36,7 @@ const pathVariants = {
   },
 };
 
-export const Loader: React.FC = ({}) => {
+export const Loader: React.FC = () => {
   return (
     <LoaderContainer
       variants={containerVariant}
