@@ -38,7 +38,7 @@ const ContentContainer = styled.div`
   max-width: 400px;
   margin: 150px 10px;
 
-  @media only screen and (min-width: 500px) {
+  @media only screen and (min-width: 400px) {
     & {
       margin: 200px auto;
     }

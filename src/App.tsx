@@ -11,6 +11,7 @@ import Services from "./pages/Services";
 import CircleSvgImg from "./assets/images/circle-svg.svg";
 import ScrollToTop from "./components/ScrollToTop";
 import Menu from "./components/Menu";
+import { Loader } from "./components/Loader";
 
 function App() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -23,6 +24,7 @@ function App() {
     <>
       <GlobalStyle />
       <ScrollToTop />
+      <Loader />
       {isNavOpen ? (
         <Menu
           animation="animateIN"
